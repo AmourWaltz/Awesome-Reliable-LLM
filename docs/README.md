@@ -6,8 +6,6 @@
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 ![github license](https://img.shields.io/github/license/AmourWaltz/Reliable-LLM)
 
-date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
-
 ## Introduction
 
 The project demonstrates the background about LLM hallucination 👻 as well as the mitigation methods regarding uncertainty 🤔 & knowledge 📓. The research works are collected and systematically clustered in various directions and methods for reliable AI development. The project provides a framework of improving LLMs' factuality **perception** and eliciting factual **expressions** to address the hallucination issue.

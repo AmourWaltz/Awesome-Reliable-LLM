@@ -6,7 +6,6 @@
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 ![github license](https://img.shields.io/github/license/AmourWaltz/Reliable-LLM)
 
-date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
 
 ## Introduction
 
