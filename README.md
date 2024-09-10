@@ -1,4 +1,4 @@
-# Reliable LLM: From Factuality Perception to Expression
+# Reliable LLM: Hallucination & Knowledge & Uncertainty (From Factuality Perception to Expression)
 
 \
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/hee9joon/Awesome-Diffusion-Models) 
@@ -6,34 +6,33 @@
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 ![github license](https://img.shields.io/github/license/AmourWaltz/Reliable-LLM)
 
-
 ## Introduction
 
-The project demonstrates the background about LLM hallucination 👻 as well as the mitigation methods regarding uncertainty 🤔 & knowledge 📓. The research works are collected and systematically clustered in various directions and methods for reliable AI development. The project provides a framework of improving LLMs' factuality **perception** and eliciting factual **expressions** to address the hallucination issue.
+The project demonstrates the background about LLM **hallucination** 👻 as well as the mitigation methods regarding **uncertainty** 🤔 & **knowledge** 📓. The research works are collected and systematically clustered in various directions and methods for reliable AI development. The project provides a framework of improving LLMs' factuality **perception** and eliciting factual **expressions** to address the hallucination issue.
 
 *Welcome to participate in this project to share valuable papers and exchange great ideas!* 
 
 
 ## Outline
 
-- [Reliable LLM: From Factuality Perception to Expression](#reliable-llm-from-factuality-perception-to-expression)
+- [Reliable LLM: Hallucination \& Knowledge \& Uncertainty (From Factuality Perception to Expression)](#reliable-llm-hallucination--knowledge--uncertainty-from-factuality-perception-to-expression)
   - [Introduction](#introduction)
   - [Outline](#outline)
-- [👻 Hallucination \& Factuality](#-hallucination--factuality)
-  - [Definition of LLM Hallucination](#definition-of-llm-hallucination)
-  - [Causes of LLM Hallucination](#causes-of-llm-hallucination)
-  - [Related Works of LLM Hallucination](#related-works-of-llm-hallucination)
+  - [👻 Hallucination \& Factuality](#-hallucination--factuality)
+    - [Definition of LLM Hallucination](#definition-of-llm-hallucination)
+    - [Causes of LLM Hallucination](#causes-of-llm-hallucination)
+  - [📓 LLM Knowledge](#-llm-knowledge)
+  - [🤔 Uncertainty Estimation](#-uncertainty-estimation)
+    - [Traditional Model Calibration](#traditional-model-calibration)
+    - [Uncertainty Estimation of Generative Models](#uncertainty-estimation-of-generative-models)
+- [Related Works of Hallucination \& Knowledge \& Uncertainty](#related-works-of-hallucination--knowledge--uncertainty)
+  - [👻 Hallucination \& Factuality](#-hallucination--factuality-1)
     - [Hallucination Detection](#hallucination-detection)
       - [Consistency-based Detection](#consistency-based-detection)
       - [Internal State based Detection](#internal-state-based-detection)
-- [📓 LLM Perception of Knowledge](#-llm-perception-of-knowledge)
-  - [Knowledge Boundary](#knowledge-boundary)
-  - [Related Works of LLM Knowledge](#related-works-of-llm-knowledge)
-    - [Knowledge Boundary](#knowledge-boundary-1)
-- [🤔 Uncertainty Quantification and Expression](#-uncertainty-quantification-and-expression)
-  - [Traditional Model Calibration](#traditional-model-calibration)
-  - [Uncertainty Estimation of Generative Models](#uncertainty-estimation-of-generative-models)
-  - [Related Works of Uncertainty \& Confidence \& Calibration](#related-works-of-uncertainty--confidence--calibration)
+  - [📓 LLM Knowledge](#-llm-knowledge-1)
+    - [Knowledge Boundary](#knowledge-boundary)
+  - [🤔 Uncertainty Estimation](#-uncertainty-estimation-1)
     - [Survey \& Investigation](#survey--investigation)
     - [Uncertainty Quantification](#uncertainty-quantification)
     - [Linguistic Uncertainty Expressions](#linguistic-uncertainty-expressions)
@@ -43,17 +42,13 @@ The project demonstrates the background about LLM hallucination 👻 as well as 
     - [Generative Model Calibration](#generative-model-calibration)
 - [🔭 Future Directions](#-future-directions)
 
-<br/>
-<br/>
-<br/>
+## 👻 Hallucination & Factuality
 
-# 👻 Hallucination & Factuality
-
-## Definition of LLM Hallucination
+### Definition of LLM Hallucination
 
 The definitions of hallucination vary and depend on specific tasks. This project focuses on hallucination issues in knowledge-intensive tasks (closed-book QA, dialogue, RAG, commonsense reasoning, translation, etc.), where hallucinations refer to the non-factual, incorrect knowledge in generations unfaithful with world knowledge.
 
-## Causes of LLM Hallucination
+### Causes of LLM Hallucination
 
 The causes of hallucinations vary in unfiltered incorrect statements in pertaining data, limited input length of model architecture, maximum likelihood training strategy, and diverse decoding strategies.
 
@@ -63,36 +58,8 @@ Architectures and input lengths, pertaining data and strategy of released LLMs a
 
 Comparing open-generation tasks, knowledge-intensive tasks have specific grounding-truth reference - world knowledge. Therefore, we can estimate the knowledge boundary map of an LLM to specify what it knows. It is crucial to ensure the certainty level or honesty of LLMs to a piece of factual knowledge for hallucination detection (from grey area to green area).
 
-## Related Works of LLM Hallucination
 
-### Hallucination Detection
-
-#### Consistency-based Detection
-
-| Title | Conference/Journal | Notes |
-| ---- | ---- | ---- |
-| [SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://aclanthology.org/2023.emnlp-main.557) | EMNLP 2023 |
-| [RCOT: Detecting and Rectifying Factual Inconsistency in Reasoning by Reversing Chain-of-Thought](http://arxiv.org/abs/2305.11499) | prePrint |
-
-#### Internal State based Detection
-
-| Title | Conference/Journal | Notes |
-| ---- | ---- | ---- |
-| [The Internal State of an LLM Knows When It's Lying](http://arxiv.org/abs/2304.13734) | prePrint |
-| [Unsupervised Real-Time Hallucination Detection based on the Internal States of Large Language Models](http://arxiv.org/abs/2403.06448) | prePrint |
-| [On the Universal Truthfulness Hyperplane Inside LLMs](http://arxiv.org/abs/2407.08582) | prePrint |
-| [INSIDE: LLMs' Internal States Retain the Power of Hallucination Detection](http://arxiv.org/abs/2402.03744) | prePrint |
-| [LLM Internal States Reveal Hallucination Risk Faced With a Query](http://arxiv.org/abs/2407.03282) | prePrint |
-| [Discovering Latent Knowledge in Language Models Without Supervision](http://arxiv.org/abs/2212.03827) | prePrint |
-
-
-<br/>
-<br/>
-<br/>
-
-# 📓 LLM Perception of Knowledge
-
-## Knowledge Boundary
+## 📓 LLM Knowledge
 
 <img src="figs/boundary.png"  width=70%/>
 
@@ -110,35 +77,19 @@ This adds complexity to determining the knowledge boundary, which leads to two c
     > (Example: If the confidence level for answering "Paris" to the above question is 40%, should the model refuse to answer or provide a response in this situation?)
     >
 
-## Related Works of LLM Knowledge
+## 🤔 Uncertainty Estimation
 
-### Knowledge Boundary
-
-| Title | Conference/Journal | Notes |
-| ---- | ---- | ---- |
-| [Knowledge of Knowledge: Exploring Known-Unknowns Uncertainty with Large Language Models](https://arxiv.org/abs/2305.13712) | prePrint |
-| [Can AI Assistants Know What They Don’t Know?](https://arxiv.org/abs/2401.13275) | prePrint |
-| [Do Large Language Models Know What They Don't Know?](http://arxiv.org/abs/2305.18153) | prePrint |
-| [Investigating the Factual Knowledge Boundary of Large Language Models with Retrieval Augmentation](http://arxiv.org/abs/2307.11019) | EMNLP 2023 |
-| [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](http://arxiv.org/abs/2405.05904) | prePrint |
-
-<br/>
-<br/>
-<br/>
-
-# 🤔 Uncertainty Quantification and Expression
-
-## Traditional Model Calibration
+### Traditional Model Calibration
 
 -  Models are prone to be **over-confident** in predictions using maximizing likelihood (MLE) training, it is crucial to identify the **confidence score or uncertainty estimation** for reliable AI applications.
 -  A model is considered **well-calibrated** if the **confidence score of predictions** (SoftMax probability) are well-aligned with the **actual probability** of answers being correct.
 -  **Expected Calibration Error (ECE)** and **Reliability Diagram** is used to measure the calibration performance.
 
-<img src="figs/calibration.png"  width=60%/>
+<img src="figs/calibration.png"  width=56%/>
 
 Uncalibrated (left), over-confident (mid) and well-calibrated (right) models.
 
-## Uncertainty Estimation of Generative Models
+### Uncertainty Estimation of Generative Models
 
 - To calibrate generative LLMs, we should quantify the **confidence & uncertainty** on generated sentences.
 - Uncertainty: Categorized into **aleatoric (data) and epistemic (model)** uncertainty. Frequently measured by the entropy of the prediction to indicate the dispersion of the model prediction.
@@ -150,7 +101,50 @@ Although the knowledge boundary is important for knowledge-intensive tasks, ther
 
 <img src="figs/uncertainty.png"  width=65%/>
 
-## Related Works of Uncertainty & Confidence & Calibration
+<br/>
+<br/>
+<br/>
+<br/>
+
+# Related Works of Hallucination & Knowledge & Uncertainty
+
+## 👻 Hallucination & Factuality
+
+### Hallucination Detection
+
+#### Consistency-based Detection
+
+| Title | Conference/Journal |
+| ---- | ---- |
+| [SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://aclanthology.org/2023.emnlp-main.557) | EMNLP 2023 |
+| [RCOT: Detecting and Rectifying Factual Inconsistency in Reasoning by Reversing Chain-of-Thought](http://arxiv.org/abs/2305.11499) | prePrint |
+
+#### Internal State based Detection
+
+| Title | Conference/Journal |
+| ---- | ---- |
+| [The Internal State of an LLM Knows When It's Lying](http://arxiv.org/abs/2304.13734) | prePrint |
+| [Unsupervised Real-Time Hallucination Detection based on the Internal States of Large Language Models](http://arxiv.org/abs/2403.06448) | prePrint |
+| [On the Universal Truthfulness Hyperplane Inside LLMs](http://arxiv.org/abs/2407.08582) | prePrint |
+| [INSIDE: LLMs' Internal States Retain the Power of Hallucination Detection](http://arxiv.org/abs/2402.03744) | prePrint |
+| [LLM Internal States Reveal Hallucination Risk Faced With a Query](http://arxiv.org/abs/2407.03282) | prePrint |
+| [Discovering Latent Knowledge in Language Models Without Supervision](http://arxiv.org/abs/2212.03827) | prePrint |
+
+
+## 📓 LLM Knowledge
+
+### Knowledge Boundary
+
+| Title | Conference/Journal |
+| ---- | ---- |
+| [Knowledge of Knowledge: Exploring Known-Unknowns Uncertainty with Large Language Models](https://arxiv.org/abs/2305.13712) | prePrint |
+| [Can AI Assistants Know What They Don’t Know?](https://arxiv.org/abs/2401.13275) | prePrint |
+| [Do Large Language Models Know What They Don't Know?](http://arxiv.org/abs/2305.18153) | prePrint |
+| [Investigating the Factual Knowledge Boundary of Large Language Models with Retrieval Augmentation](http://arxiv.org/abs/2307.11019) | EMNLP 2023 |
+| [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](http://arxiv.org/abs/2405.05904) | prePrint |
+
+
+## 🤔 Uncertainty Estimation
 
 ### Survey & Investigation
 
@@ -241,7 +235,6 @@ This part of works focus on improving confidence expressions of LLMs in a two-st
 | [Calibrating Large Language Models with Sample Consistency](https://arxiv.org/abs/2402.13904) | prePrint |
 | [Linguistic Calibration of Language Models](https://arxiv.org/abs/2404.00474) | prePrint |
 
-<br/>
 <br/>
 <br/>
 

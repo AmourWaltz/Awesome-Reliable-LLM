@@ -1,4 +1,4 @@
-# Reliable LLM: From Factuality Perception to Expression
+# Reliable LLM: Hallucination & Knowledge & Uncertainty (From Factuality Perception to Expression)
 
 \
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/hee9joon/Awesome-Diffusion-Models) 
@@ -8,31 +8,32 @@
 
 ## Introduction
 
-The project demonstrates the background about LLM hallucination 👻 as well as the mitigation methods regarding uncertainty 🤔 & knowledge 📓. The research works are collected and systematically clustered in various directions and methods for reliable AI development. The project provides a framework of improving LLMs' factuality **perception** and eliciting factual **expressions** to address the hallucination issue.
+The project demonstrates the background about LLM **hallucination** 👻 as well as the mitigation methods regarding **uncertainty** 🤔 & **knowledge** 📓. The research works are collected and systematically clustered in various directions and methods for reliable AI development. The project provides a framework of improving LLMs' factuality **perception** and eliciting factual **expressions** to address the hallucination issue.
 
 *Welcome to participate in this project to share valuable papers and exchange great ideas!* 
 
 
 ## Outline
 
-- [Reliable LLM: From Factuality Perception to Expression](#reliable-llm-from-factuality-perception-to-expression)
+- [Reliable LLM: Hallucination \& Knowledge \& Uncertainty (From Factuality Perception to Expression)](#reliable-llm-hallucination--knowledge--uncertainty-from-factuality-perception-to-expression)
   - [Introduction](#introduction)
   - [Outline](#outline)
-- [👻 Hallucination \& Factuality](#-hallucination--factuality)
-  - [Definition of LLM Hallucination](#definition-of-llm-hallucination)
-  - [Causes of LLM Hallucination](#causes-of-llm-hallucination)
+  - [👻 Hallucination \& Factuality](#-hallucination--factuality)
+    - [Definition of LLM Hallucination](#definition-of-llm-hallucination)
+    - [Causes of LLM Hallucination](#causes-of-llm-hallucination)
+  - [📓 LLM Perception of Knowledge](#-llm-perception-of-knowledge)
+  - [👻 Hallucination \& Factuality](#-hallucination--factuality-1)
+  - [🤔 Uncertainty Quantification and Expression](#-uncertainty-quantification-and-expression)
+    - [Traditional Model Calibration](#traditional-model-calibration)
+    - [Uncertainty Estimation of Generative Models](#uncertainty-estimation-of-generative-models)
+- [Related Works](#related-works)
   - [Related Works of LLM Hallucination](#related-works-of-llm-hallucination)
     - [Hallucination Detection](#hallucination-detection)
       - [Consistency-based Detection](#consistency-based-detection)
       - [Internal State based Detection](#internal-state-based-detection)
-- [📓 LLM Perception of Knowledge](#-llm-perception-of-knowledge)
-  - [Knowledge Boundary](#knowledge-boundary)
-  - [Related Works of LLM Knowledge](#related-works-of-llm-knowledge)
-    - [Knowledge Boundary](#knowledge-boundary-1)
-- [🤔 Uncertainty Quantification and Expression](#-uncertainty-quantification-and-expression)
-  - [Traditional Model Calibration](#traditional-model-calibration)
-  - [Uncertainty Estimation of Generative Models](#uncertainty-estimation-of-generative-models)
-  - [Related Works of Uncertainty \& Confidence \& Calibration](#related-works-of-uncertainty--confidence--calibration)
+  - [📓 LLM Perception of Knowledge](#-llm-perception-of-knowledge-1)
+    - [Knowledge Boundary](#knowledge-boundary)
+  - [🤔 Uncertainty Quantification and Expression](#-uncertainty-quantification-and-expression-1)
     - [Survey \& Investigation](#survey--investigation)
     - [Uncertainty Quantification](#uncertainty-quantification)
     - [Linguistic Uncertainty Expressions](#linguistic-uncertainty-expressions)
@@ -46,13 +47,13 @@ The project demonstrates the background about LLM hallucination 👻 as well as 
 <br/>
 <br/>
 
-# 👻 Hallucination & Factuality
+## 👻 Hallucination & Factuality
 
-## Definition of LLM Hallucination
+### Definition of LLM Hallucination
 
 The definitions of hallucination vary and depend on specific tasks. This project focuses on hallucination issues in knowledge-intensive tasks (closed-book QA, dialogue, RAG, commonsense reasoning, translation, etc.), where hallucinations refer to the non-factual, incorrect knowledge in generations unfaithful with world knowledge.
 
-## Causes of LLM Hallucination
+### Causes of LLM Hallucination
 
 The causes of hallucinations vary in unfiltered incorrect statements in pertaining data, limited input length of model architecture, maximum likelihood training strategy, and diverse decoding strategies.
 
@@ -61,6 +62,63 @@ The causes of hallucinations vary in unfiltered incorrect statements in pertaini
 Architectures and input lengths, pertaining data and strategy of released LLMs are fixed. Tracing incorrect texts in substantial pertaining data is challenging. This project mainly focuses on detecting hallucinations by tracing what LLMs learn in the pertaining stage and mitigating hallucinations in fine-tuning and decoding.
 
 Comparing open-generation tasks, knowledge-intensive tasks have specific grounding-truth reference - world knowledge. Therefore, we can estimate the knowledge boundary map of an LLM to specify what it knows. It is crucial to ensure the certainty level or honesty of LLMs to a piece of factual knowledge for hallucination detection (from grey area to green area).
+
+
+<br/>
+<br/>
+
+## 📓 LLM Perception of Knowledge
+
+## 👻 Hallucination & Factuality
+
+<img src="figs/boundary.png"  width=70%/>
+
+The above diagram can roughly and simply represent the knowledge boundary. However, in reality, like humans, for much knowledge, we exist in a state of uncertainty, rather than only in a state of knowing or not knowing. 
+Moreover, maximum likelihood prediction in pertaining makes LLMs be prone to generate over-confident responses. Even if the LLM knows a fact, how to make LLMs accurately tell what they know is also important.
+
+This adds complexity to determining the knowledge boundary, which leads to two challenging questions:
+
+1. How to accurately **perceive (Perception)** the knowledge boundary?
+    
+    > (Example: Given a question, such as "What is the capital of France?", the model is required to provide its confidence level for this question.)
+    > 
+2. How to accurately **express (Expression)** knowledge where the boundary is somewhat vague? (Previous work U2Align is a method to enhance expressions. Current interests for the second stage “expression” also lie in “alignment” methods.)
+    
+    > (Example: If the confidence level for answering "Paris" to the above question is 40%, should the model refuse to answer or provide a response in this situation?)
+    >
+
+
+<br/>
+<br/>
+
+## 🤔 Uncertainty Quantification and Expression
+
+### Traditional Model Calibration
+
+-  Models are prone to be **over-confident** in predictions using maximizing likelihood (MLE) training, it is crucial to identify the **confidence score or uncertainty estimation** for reliable AI applications.
+-  A model is considered **well-calibrated** if the **confidence score of predictions** (SoftMax probability) are well-aligned with the **actual probability** of answers being correct.
+-  **Expected Calibration Error (ECE)** and **Reliability Diagram** is used to measure the calibration performance.
+
+<img src="figs/calibration.png"  width=60%/>
+
+Uncalibrated (left), over-confident (mid) and well-calibrated (right) models.
+
+### Uncertainty Estimation of Generative Models
+
+- To calibrate generative LLMs, we should quantify the **confidence & uncertainty** on generated sentences.
+- Uncertainty: Categorized into **aleatoric (data) and epistemic (model)** uncertainty. Frequently measured by the entropy of the prediction to indicate the dispersion of the model prediction.
+- Confidence: Generally associated with both the input and the prediction.
+- The terms uncertainty and confidence are often used interchangeably.
+
+
+Although the knowledge boundary is important for knowledge-intensive tasks, there are no specific definitions or concepts in previous works. Current methods for estimating knowledge boundaries refer to confidence/uncertainty estimation methods including ① logit-based methods using token-level probabilities; ② prompt-based methods to make LLMs express confidence in words; ③ sampling-based methods to calculate consistency; and ④ training-based methods to learn the ability to express uncertainty. 
+
+<img src="figs/uncertainty.png"  width=65%/>
+
+<br/>
+<br/>
+
+# Related Works
 
 ## Related Works of LLM Hallucination
 
@@ -85,31 +143,7 @@ Comparing open-generation tasks, knowledge-intensive tasks have specific groundi
 | [Discovering Latent Knowledge in Language Models Without Supervision](http://arxiv.org/abs/2212.03827) | prePrint |
 
 
-<br/>
-<br/>
-<br/>
-
-# 📓 LLM Perception of Knowledge
-
-## Knowledge Boundary
-
-<img src="figs/boundary.png"  width=70%/>
-
-The above diagram can roughly and simply represent the knowledge boundary. However, in reality, like humans, for much knowledge, we exist in a state of uncertainty, rather than only in a state of knowing or not knowing. 
-Moreover, maximum likelihood prediction in pertaining makes LLMs be prone to generate over-confident responses. Even if the LLM knows a fact, how to make LLMs accurately tell what they know is also important.
-
-This adds complexity to determining the knowledge boundary, which leads to two challenging questions:
-
-1. How to accurately **perceive (Perception)** the knowledge boundary?
-    
-    > (Example: Given a question, such as "What is the capital of France?", the model is required to provide its confidence level for this question.)
-    > 
-2. How to accurately **express (Expression)** knowledge where the boundary is somewhat vague? (Previous work U2Align is a method to enhance expressions. Current interests for the second stage “expression” also lie in “alignment” methods.)
-    
-    > (Example: If the confidence level for answering "Paris" to the above question is 40%, should the model refuse to answer or provide a response in this situation?)
-    >
-
-## Related Works of LLM Knowledge
+## 📓 LLM Perception of Knowledge
 
 ### Knowledge Boundary
 
@@ -121,35 +155,8 @@ This adds complexity to determining the knowledge boundary, which leads to two c
 | [Investigating the Factual Knowledge Boundary of Large Language Models with Retrieval Augmentation](http://arxiv.org/abs/2307.11019) | EMNLP 2023 |
 | [Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?](http://arxiv.org/abs/2405.05904) | prePrint |
 
-<br/>
-<br/>
-<br/>
 
-# 🤔 Uncertainty Quantification and Expression
-
-## Traditional Model Calibration
-
--  Models are prone to be **over-confident** in predictions using maximizing likelihood (MLE) training, it is crucial to identify the **confidence score or uncertainty estimation** for reliable AI applications.
--  A model is considered **well-calibrated** if the **confidence score of predictions** (SoftMax probability) are well-aligned with the **actual probability** of answers being correct.
--  **Expected Calibration Error (ECE)** and **Reliability Diagram** is used to measure the calibration performance.
-
-<img src="figs/calibration.png"  width=60%/>
-
-Uncalibrated (left), over-confident (mid) and well-calibrated (right) models.
-
-## Uncertainty Estimation of Generative Models
-
-- To calibrate generative LLMs, we should quantify the **confidence & uncertainty** on generated sentences.
-- Uncertainty: Categorized into **aleatoric (data) and epistemic (model)** uncertainty. Frequently measured by the entropy of the prediction to indicate the dispersion of the model prediction.
-- Confidence: Generally associated with both the input and the prediction.
-- The terms uncertainty and confidence are often used interchangeably.
-
-
-Although the knowledge boundary is important for knowledge-intensive tasks, there are no specific definitions or concepts in previous works. Current methods for estimating knowledge boundaries refer to confidence/uncertainty estimation methods including ① logit-based methods using token-level probabilities; ② prompt-based methods to make LLMs express confidence in words; ③ sampling-based methods to calculate consistency; and ④ training-based methods to learn the ability to express uncertainty. 
-
-<img src="figs/uncertainty.png"  width=65%/>
-
-## Related Works of Uncertainty & Confidence & Calibration
+## 🤔 Uncertainty Quantification and Expression
 
 ### Survey & Investigation
 
@@ -240,9 +247,6 @@ This part of works focus on improving confidence expressions of LLMs in a two-st
 | [Calibrating Large Language Models with Sample Consistency](https://arxiv.org/abs/2402.13904) | prePrint |
 | [Linguistic Calibration of Language Models](https://arxiv.org/abs/2404.00474) | prePrint |
 
-<br/>
-<br/>
-<br/>
 
 # 🔭 Future Directions
 
