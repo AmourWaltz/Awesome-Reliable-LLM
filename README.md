@@ -110,6 +110,7 @@ Although the knowledge boundary is important for knowledge-intensive tasks, ther
 ## 👻 Hallucination & Factuality
 
 ### Hallucination Detection
+- **[REFUTE](https://bgpt.pro/refute)** — Scientific critique & epistemic calibration. Judge-free board for whether models overclaim on recent science summaries; critique skill ≠ calibration. [Dataset](https://huggingface.co/datasets/BGPT-OFFICIAL/refute)
 
 #### Consistency-based Detection
 
