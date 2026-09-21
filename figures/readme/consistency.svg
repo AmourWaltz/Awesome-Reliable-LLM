@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="169" height="32" viewBox="0 0 169 32" role="img" aria-label="93 papers · 3 topics">
+  <title>93 papers · 3 topics</title>
+  <rect x="0.5" y="0.5" width="168" height="31" rx="7" fill="#eef4fc" stroke="#265b9c" stroke-opacity="0.22"/>
+  <g transform="translate(10 8)" fill="none" stroke="#265b9c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="0.5" y="1" width="8" height="8" rx="2"/><rect x="7.5" y="7" width="8" height="8" rx="2"/></g>
+  <text x="35" y="20.5" fill="#265b9c" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif" font-size="12" font-weight="600">93 papers · 3 topics</text>
+</svg>

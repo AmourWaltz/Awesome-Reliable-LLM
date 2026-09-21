@@ -1,0 +1,9 @@
+# README visual assets
+
+`reliable-llms-banner.png` is an original decorative illustration generated with the built-in `image_gen` tool. The three motifs represent factuality, honesty, and consistency; the illustration does not encode data or experimental results.
+
+The SVG badges are local, editable graphics. Their counts reflect the reading lists in `README_outline.md` and should be updated when entries or categories change.
+
+## Banner prompt
+
+Use case: illustration-story. Asset type: a wide editorial masthead illustration for a GitHub research bibliography called Awesome Reliable LLMs. Create one polished landscape image, approximately 3:1 aspect ratio, with a deep ink-navy background. Visualize three complementary qualities of reliable language models as three equally important, elegantly connected sculptural objects: on the left, a stack of research/evidence cards with a clear checkmark and precise teal accents, representing factuality; in the middle, a finely drawn amber confidence gauge with a measured arc and an open gap, representing honesty about uncertainty; on the right, three blue interlocking rounded frames connected by an unbroken path, representing contextual consistency. Thin technical lines connect all three objects across the composition without arrows or a sequence. Restrained dimensional paper-and-glass illustration, crisp precise geometry, soft studio shadows, subtle editorial grain, premium scientific publication aesthetic. Generous empty navy space around the shapes; keep every object and shadow safely inside the canvas. Balanced full-width composition, sophisticated and calm. No text, letters, numbers, labels, equations, logos, robot mascots, watermarks, neon glow, or additional panels. The illustration is decorative: no charts or scientific claims.
