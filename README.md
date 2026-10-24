@@ -476,6 +476,7 @@ Approaches for improving source faithfulness and coherence across interactions. 
 - [Improving Multi-turn Dialogue Consistency with Self-Recall Thinking](https://arxiv.org/abs/2605.15102) — **arXiv preprint, 2026-05**.
 - [Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models](https://arxiv.org/abs/2604.25313) — **arXiv preprint, 2026-04**.
 - [Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS](https://arxiv.org/abs/2604.10734) — **arXiv preprint, 2026-04**.
+- [ParamMute: Suppressing Knowledge-Critical FFNs for Faithful Retrieval-Augmented Generation](https://openreview.net/forum?id=CyUq9D99vE) — **NeurIPS 2025**.
 - [Context-DPO: Aligning Language Models for Context-Faithfulness](https://aclanthology.org/2025.findings-acl.536/) — **Findings of ACL 2025**.
 - [To Trust or Not to Trust? Enhancing Large Language Models' Situated Faithfulness to External Contexts](https://proceedings.iclr.cc/paper_files/paper/2025/hash/186a213d720568b31f9b59c085a23e5a-Abstract-Conference.html) — **ICLR 2025**.
 - [Understand What LLM Needs: Dual Preference Alignment for Retrieval-Augmented Generation](https://doi.org/10.1145/3696410.3714717) — **WWW 2025**.
