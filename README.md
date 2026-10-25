@@ -196,6 +196,7 @@ Methods for identifying factual errors or estimating hallucination risk using sa
 - [MultiHaluDet: Multilingual Hallucination Detection via LLM Hidden State Probing](https://aclanthology.org/2026.mellm-1.6/) — **MeLLM Workshop 2026**.
 - [Domain-Specific Hallucination Detection in Large Language Models](https://arxiv.org/abs/2609.11878) — **arXiv preprint, 2026-09**.
 - [Hallucination Detection in Large Language Models Using Diversion Decoding](https://arxiv.org/abs/2607.10476) — **arXiv preprint, 2026-07**.
+- [DRIFT: Detecting Representational Inconsistencies for Factual Truthfulness](https://arxiv.org/abs/2601.14210) — **arXiv preprint, 2026-01**.
 - [Simple Factuality Probes Detect Hallucinations in Long-Form Natural Language Generation](https://aclanthology.org/2025.findings-emnlp.880/) — **Findings of EMNLP 2025**.
 - [REFIND at SemEval-2025 Task 3: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models](https://aclanthology.org/2025.semeval-1.2/) — **SemEval Workshop 2025**.
 - [Unsupervised Hallucination Detection by Inspecting Reasoning Processes](https://aclanthology.org/2025.emnlp-main.1124/) — **EMNLP 2025**.
