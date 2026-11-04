@@ -474,6 +474,7 @@ Approaches for improving source faithfulness and coherence across interactions. 
 - [PrefixNLI: Detecting Factual Inconsistencies as Soon as They Arise](https://aclanthology.org/2026.acl-long.63/) — **ACL 2026**.
 - [Verify Before You Commit: Towards Faithful Reasoning in LLM Agents via Self-Auditing](https://aclanthology.org/2026.acl-long.1440/) — **ACL 2026**.
 - [When Context Misleads: Intent-Guided Decoding for Robust Retrieval-Augmented Generation](https://arxiv.org/abs/2608.16515) — **arXiv preprint, 2026-08**.
+- [SPARK: Adaptive Parametric Knowledge Participation for Faithful Retrieval-Augmented Generation](https://arxiv.org/abs/2606.27786) — **arXiv preprint, 2026-06**.
 - [Improving Multi-turn Dialogue Consistency with Self-Recall Thinking](https://arxiv.org/abs/2605.15102) — **arXiv preprint, 2026-05**.
 - [Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models](https://arxiv.org/abs/2604.25313) — **arXiv preprint, 2026-04**.
 - [Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS](https://arxiv.org/abs/2604.10734) — **arXiv preprint, 2026-04**.
